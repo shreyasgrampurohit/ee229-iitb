@@ -260,7 +260,7 @@ export default function AIChatAssistant() {
                   </button>
                 </div>
                 <div className="text-blue-600 dark:text-blue-400 mt-1 truncate">
-                  "{selectedContext.slice(0, 60)}..."
+                  &quot;{selectedContext.slice(0, 60)}...&quot;
                 </div>
               </div>
             )}

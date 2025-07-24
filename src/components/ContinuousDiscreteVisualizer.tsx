@@ -49,7 +49,7 @@ const ContinuousDiscreteVisualizer = () => {
           <ResponsiveContainer width="100%" height={180}>
             <LineChart data={continuousData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="t" label={{ value: 'Time (t)', position: 'insideBottom', offset: -5 }} />
+                              <XAxis dataKey="t" label={{ value: 'Time (t)', position: 'insideBottom', offset: -5 }} />
               <YAxis label={{ value: 'x(t)', angle: -90, position: 'insideLeft' }} />
               <Tooltip formatter={(value) => [value, 'x(t)']} />
               <Line type="monotone" dataKey="continuous" stroke="#10b981" strokeWidth={2} dot={false} />
@@ -65,7 +65,7 @@ const ContinuousDiscreteVisualizer = () => {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="n" label={{ value: 'Sample (n)', position: 'insideBottom', offset: -5 }} />
                 <YAxis label={{ value: 'x[n]', angle: -90, position: 'insideLeft' }} />
-                <Tooltip formatter={(value, name) => [value, 'x[n]']} labelFormatter={(n) => `Sample ${n} (t = ${discreteData[n]?.t}s)`} />
+                <Tooltip formatter={(value) => [value, 'x[n]']} labelFormatter={(n) => `Sample ${n} (t = ${discreteData[n]?.t}s)`} />
                 <Line type="monotone" dataKey="discrete" stroke="#3b82f6" strokeWidth={3} dot={{ r: 4 }} />
               </LineChart>
             </ResponsiveContainer>

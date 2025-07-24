@@ -1,6 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
-/* eslint-disable react/no-unescaped-entities */
 
 import ContinuousDiscreteVisualizer from '@/components/ContinuousDiscreteVisualizer';
 import ElementarySignalsVisualizer from '@/components/ElementarySignalsVisualizer';
@@ -16,7 +14,7 @@ import { BrainCircuit, InfinityIcon, Ruler, Sigma, Waves, Zap } from 'lucide-rea
 import React from 'react';
 
 const IntroductionToSignalsPage = () => {
-  const sections = [
+  const sections = React.useMemo(() => [
     {
       id: "what-is-a-signal",
       title: "1.1 What is a Signal?",
@@ -158,7 +156,7 @@ const IntroductionToSignalsPage = () => {
         </>
       )
     }
-  ];
+  ], []);
 
   const [activeSection, setActiveSection] = React.useState('');
 

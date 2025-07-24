@@ -27,11 +27,16 @@ Please provide a clear, educational response based on the context provided. If t
     const answer = response.text();
     
     return NextResponse.json({ answer });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Gemini API Error:', error);
     
+    let message = 'An unexpected error occurred.';
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
     // Handle specific errors
-    if (error.message?.includes('API_KEY_INVALID')) {
+    if (message.includes('API_KEY_INVALID')) {
       return NextResponse.json({ 
         answer: 'Please set up your Gemini API key. Go to https://makersuite.google.com/app/apikey to get your free API key.' 
       }, { status: 401 });
