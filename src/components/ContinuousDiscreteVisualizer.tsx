@@ -49,7 +49,7 @@ const ContinuousDiscreteVisualizer = () => {
           <ResponsiveContainer width="100%" height={180}>
             <LineChart data={continuousData}>
               <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis dataKey="t" label={{ value: 'Time (t)', position: 'insideBottom', offset: -5 }} />
+              <XAxis dataKey="t" label={{ value: 'Time (t)', position: 'insideBottom', offset: -5 }} />
               <YAxis label={{ value: 'x(t)', angle: -90, position: 'insideLeft' }} />
               <Tooltip formatter={(value) => [value, 'x(t)']} />
               <Line type="monotone" dataKey="continuous" stroke="#10b981" strokeWidth={2} dot={false} />

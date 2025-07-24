@@ -199,7 +199,7 @@ export default function AIChatAssistant() {
           >
             {messages.length === 0 && (
               <div className="text-gray-500 text-sm text-center py-4">
-                👋 Hi! I'm here to help you with signal processing questions.
+                👋 Hi! I&apos;m here to help you with signal processing questions.
                 <br />
                 <br />
                 💡 <strong>Tip:</strong> Select text on the page and ask me
