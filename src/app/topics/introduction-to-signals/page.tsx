@@ -61,10 +61,6 @@ const IntroductionToSignalsPage = () => {
               <AccordionTrigger>Time Shifting</AccordionTrigger>
               <AccordionContent style={{ lineHeight: '1.8', padding: '1rem 0' }}>
                 <p>A time shift results in a delay or an advance of the signal in time. A signal <Math>x(t)</Math> shifted by a time <Math>t_0</Math> is represented as <Math>y(t) = x(t - t_0)</Math>.</p>
-          <ul className="list-disc pl-6 mt-2 space-y-2">
-            <li>The <strong>total energy</strong> of a signal is defined as <Math block>{`E = \\int_{-\\infty}^{+\\infty} |x(t)|^2 \\, dt`}</Math>.</li>
-            <li>The <strong>average power</strong> of a signal is defined as <Math block>{`P = \\lim_{T \\to \\infty} \\frac{1}{T} \\int_{-T/2}^{T/2} |x(t)|^2 \\, dt`}</Math>.</li>
-                </ul>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
@@ -164,6 +160,37 @@ const IntroductionToSignalsPage = () => {
     }
   ];
 
+  const [activeSection, setActiveSection] = React.useState('');
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -80% 0px" }
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, [sections]);
+
   return (
     <div className="bg-gray-50 dark:bg-gray-900 min-h-screen">
       <div className="container mx-auto px-4 py-12 max-w-7xl">
@@ -175,7 +202,7 @@ const IntroductionToSignalsPage = () => {
         <div className="safari-layout">
           <main className="safari-main space-y-8">
             {sections.map(section => (
-              <Card key={section.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
+              <Card key={section.id} id={section.id} className="shadow-lg hover:shadow-xl transition-shadow duration-300 w-full scroll-mt-20">
                 <CardHeader className="flex flex-row items-center gap-4 p-6">
                   <div className="flex-shrink-0 p-3 rounded-full" style={{ backgroundColor: '#f3f4f6' }}>
                     {section.icon}
@@ -189,7 +216,7 @@ const IntroductionToSignalsPage = () => {
             ))}
           </main>
 
-          <aside className="safari-sidebar space-y-8" style={{ minHeight: 'fit-content' }}>
+          <aside className="safari-sidebar sticky top-8 self-start space-y-8">
             <Card className="shadow-lg w-full">
               <CardHeader className="p-6">
                 <CardTitle className="text-xl md:text-2xl">Table of Contents</CardTitle>
@@ -198,7 +225,14 @@ const IntroductionToSignalsPage = () => {
                 <ul className="space-y-2">
                   {sections.map(section => (
                     <li key={section.id}>
-                      <a href={`#${section.id}`} className="flex items-center gap-3 hover:text-blue-500 transition-colors duration-200 py-1 text-sm md:text-base" style={{ color: '#374151' }}>
+                      <a 
+                        href={`#${section.id}`} 
+                        className={`flex items-center gap-3 hover:text-blue-500 transition-colors duration-200 py-1 text-sm md:text-base ${
+                          activeSection === section.id 
+                            ? 'text-blue-600 font-semibold' 
+                            : 'text-gray-600 dark:text-gray-400'
+                        }`}
+                      >
                         <span className="flex-shrink-0">
                           {React.cloneElement(section.icon, { style: { width: '20px', height: '20px' } })}
                         </span>
