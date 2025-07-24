@@ -1,102 +1,94 @@
-import Image from "next/image";
+
+import Link from "next/link";
+
+const topics = [
+  {
+    id: 1,
+    title: "1. Introduction to Signals",
+    description: "Understanding continuous and discrete time signals.",
+    href: "/topics/introduction-to-signals",
+    wip: false,
+  },
+  {
+    id: 2,
+    title: "2. LTI Systems",
+    description: "Convolution, impulse response, and system properties.",
+    href: "/topics/lti-systems",
+    wip: false,
+  },
+  {
+    id: 3,
+    title: "3. Fourier Series",
+    description: "Representing periodic signals.",
+    href: "/topics/fourier-series",
+    wip: false,
+  },
+  {
+    id: 4,
+    title: "4. Fourier Transform",
+    description: "Analyzing non-periodic signals.",
+    href: "#",
+    wip: true,
+  },
+  {
+    id: 5,
+    title: "5. Sampling Theorem",
+    description: "The bridge between continuous and discrete signals.",
+    href: "#",
+    wip: true,
+  },
+  {
+    id: 6,
+    title: "6. Laplace Transform",
+    description: "Analyzing continuous-time systems.",
+    href: "#",
+    wip: true,
+  },
+  {
+    id: 7,
+    title: "7. The z-Transform",
+    description: "The discrete-time counterpart to the Laplace Transform.",
+    href: "#",
+    wip: true,
+  },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="font-sans grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+      <header className="row-start-1">
+        <h1 className="text-4xl font-bold text-center">Signal Processing - I</h1>
+        <p className="text-lg text-center text-gray-600 dark:text-gray-400 mt-2">
+          An intuitive guide to understanding the fundamentals.
+        </p>
+      </header>
+      <main className="flex flex-col gap-8 row-start-2 items-center w-full">
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold mb-4">Course Content</h2>
+          <p className="max-w-2xl">
+            This website is designed to supplement the Signal Processing - I course. Here you will find interactive visualizations and explanations for key concepts to help build your intuition.
+          </p>
+        </div>
+        <div className="w-full max-w-4xl">
+          <h3 className="text-xl font-semibold mb-4">Topics</h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {topics.map((topic) => (
+              <Link href={topic.href} key={topic.id}>
+                <div className={`border rounded-lg p-4 h-full ${topic.wip ? 'cursor-not-allowed bg-gray-100 dark:bg-gray-800' : 'hover:shadow-lg transition-shadow cursor-pointer'}`}>
+                  <h4 className="font-bold text-lg">{topic.title} {topic.wip && <span className="text-xs font-normal text-gray-500">(WIP)</span>}</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    {topic.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          Created for EE229 @ IIT Bombay
+        </p>
       </footer>
     </div>
   );
