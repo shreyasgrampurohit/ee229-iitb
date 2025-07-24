@@ -1,4 +1,5 @@
 
+/* eslint-disable react/no-unescaped-entities */
 import ConvolutionVisualizer from '@/components/ConvolutionVisualizer';
 
 const LTISystemsPage = () => {

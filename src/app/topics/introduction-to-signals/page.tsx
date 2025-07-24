@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
+/* eslint-disable react/no-unescaped-entities */
 
 import ContinuousDiscreteVisualizer from '@/components/ContinuousDiscreteVisualizer';
 import ElementarySignalsVisualizer from '@/components/ElementarySignalsVisualizer';
