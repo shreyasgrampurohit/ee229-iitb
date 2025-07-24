@@ -78,8 +78,8 @@ const IntroductionToSignalsPage = () => {
               <AccordionContent style={{ lineHeight: '1.8', padding: '1rem 0' }}>
                 <p>Time scaling compresses or expands a signal in time. It is represented as <Math>{`y(t) = x(at)`}</Math>.</p>
                 <ul className="list-disc pl-6 mt-3 space-y-2">
-                  <li>If <Math>|a| {'>'} 1</Math>, the signal is <strong>compressed</strong> in time. It happens faster.</li>
-                  <li>If <Math>0 {'<'} |a| {'<'} 1</Math>, the signal is <strong>expanded</strong> or stretched in time. It happens slower.</li>
+                  <li><Math>{`|a| > 1`}</Math> The signal is <strong>compressed</strong> in time. It happens faster.</li>
+                  <li><Math>{`0 < |a| < 1`}</Math> The signal is <strong>expanded</strong> or stretched in time. It happens slower.</li>
                 </ul>
               </AccordionContent>
             </AccordionItem>
