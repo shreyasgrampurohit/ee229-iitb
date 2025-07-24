@@ -181,7 +181,7 @@ const ConvolutionVisualizer = () => {
                 <YAxis domain={[-0.2, 3]}/>
                 <Tooltip />
                 <Line isAnimationActive={false} type="monotone" dataKey="y" stroke="#ff7300" dot={false} strokeWidth={2}/>
-                <ReferenceLine isAnimationActive={false} x={t} stroke="red" strokeWidth={2} />
+                <ReferenceLine x={t} stroke="red" strokeWidth={2} />
                 </LineChart>
             </ResponsiveContainer>
             </div>
@@ -202,7 +202,7 @@ const ConvolutionVisualizer = () => {
                         <Line isAnimationActive={false} type="monotone" name="Input x(τ)" dataKey="input" stroke="#8884d8" dot={false} strokeWidth={2}/>
                         <Line isAnimationActive={false} type="monotone" name="Impulse h(t-τ)" dataKey="impulse" stroke="#82ca9d" dot={false} strokeWidth={2}/>
                         <Line isAnimationActive={false} type="monotone" name="Output y(t)" dataKey="output" stroke="#ff7300" dot={false} strokeWidth={2}/>
-                        <ReferenceLine isAnimationActive={false} x={t} stroke="red" strokeWidth={2} />
+                        <ReferenceLine x={t} stroke="red" strokeWidth={2} />
                     </LineChart>
                 </ResponsiveContainer>
             </div>
