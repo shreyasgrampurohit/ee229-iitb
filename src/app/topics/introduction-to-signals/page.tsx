@@ -130,7 +130,7 @@ const IntroductionToSignalsPage = () => {
           <ul className="list-disc pl-6 mt-2 space-y-2">
             <li><strong>Exponential Signals:</strong> Of the form <Math>{"x(t) = Ce^{at}"}</Math>. Depending on whether C and a are real or complex, these signals can represent decaying or growing exponentials, or sinusoids (when 'a' is purely imaginary, by Euler's formula).</li>
             <li><strong>Sinusoidal Signals:</strong> As seen in the plot below, these are periodic signals of the form <Math>x(t) = A * cos(omega * t + phi)</Math>. They are a cornerstone of signal analysis.</li>
-            <li><strong>Unit Step Function <Math>u(t)</Math>:</strong> Defined as <Math>u(t) = 1</Math> for <Math>t {'>'} 0</Math> and <Math>u(t) = 0</Math> for <Math>t {'<'} 0</Math>. It is used to represent signals that "switch on" at a certain time.</li>
+            <li><strong>Unit Step Function <Math>u(t)</Math>:</strong> Defined as <Math>{`u(t) = 1`}</Math> for <Math>{`t > 0`}</Math> and <Math>{`u(t) = 0`}</Math> for <Math>{`t < 0`}</Math>. It is used to represent signals that "switch on" at a certain time.</li>
             <li><strong>Unit Impulse Function <Math>delta(t)</Math>:</strong> The Dirac delta function is a theoretical signal defined as being zero everywhere except at <Math>t=0</Math>, where it is infinitely high, and the total area under the function is equal to 1. It is immensely important for understanding LTI systems.</li>
           </ul>
           
